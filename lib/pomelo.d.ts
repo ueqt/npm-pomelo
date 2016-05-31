@@ -162,7 +162,7 @@ declare module pomelo {
          * @param {Boolean} attach whether attach the settings to application
          * @return {Server|Mixed} for chaining, or the setting value         
          */
-        set(setting: string, val: string | Object, attach?: Boolean): any;
+        set(setting: string, val: string | any, attach?: Boolean): any;
         
         /**
          * Get property from setting
@@ -170,7 +170,7 @@ declare module pomelo {
          * @param {String} setting application setting
          * @return {String} val         
          */
-        get(setting: string): string | Object;
+        get(setting: string): string | any;
         
         /**
          * Check if `setting` is enabled.
@@ -444,6 +444,7 @@ declare module pomelo {
          */
         removeCrons(crons: any): void;  
         
+        rpc: any;        
         backendSessionService: BackendSessionService;
         sessionService: SessionService;     
     }   
@@ -674,6 +675,15 @@ declare module pomelo {
      * You can access the service by app.get('sessionService') or app.sessionService in frontend servers.
      */
     export class SessionService {
+        
+        /**
+         * Get sessions by userId.
+         *
+         * @param {Number} uid User id associated with the session
+         * @return {Array} list of session binded with the uid
+         */
+        getByUid(uid: Number): (Session | FrontendSession)[];
+        
         /**
          * Kick all the session offline under the user id.
          *
@@ -701,6 +711,83 @@ declare module pomelo {
      * in frontend servers.
      */
     export class Session {
+        
+        /**
+         * Bind the session with the the uid.
+         *
+         * @param {Number} uid User id         
+         */
+        bind(uid: Number): void;
+        
+        /**
+         * Unbind the session with the the uid.
+         *
+         * @param {Number} uid User id         
+         */
+        unbind(uid: Number): void;
+        
+        /**
+         * Set values (one or many) for the session.
+         *
+         * @param {String|Object} key session key
+         * @param {Object} value session value
+         */
+        set(key: string | Object, value: Object);
+        
+        /**
+         * Remove value from the session.
+         *
+         * @param {String} key session key         
+         */
+        remove(key: string): void;
+        
+        /**
+         * Get value from the session.
+         *
+         * @param {String} key session key
+         * @return {Object} value associated with session key
+         */
+        get(key: string): Object;
+        
+        /**
+         * Send message to the session.
+         *
+         * @param  {Object} msg final message sent to client
+         */
+        send(msg: any): void;
+        
+        /**
+         * Send message to the session in batch.
+         *
+         * @param  {Array} msgs list of message
+         */
+        sendBatch(msgs: any[]): void;
+        
+    }
+    
+    /**
+     * Frontend session for frontend server.
+     */
+    export class FrontendSession {
+        
+        uid: Number;
+        
+        /**
+         * Bind the session with the the uid.
+         *
+         * @param {Number} uid User id   
+         * @param {Function} cb callback      
+         */
+        bind(uid: Number, cb: Function): void;
+        
+        /**
+         * Unbind the session with the the uid.
+         *
+         * @param {Number} uid User id      
+         * @param {Function} cb callback         
+         */
+        unbind(uid: Number, cb: Function): void;
+        
         /**
          * Set values (one or many) for the session.
          *
@@ -716,6 +803,22 @@ declare module pomelo {
          * @return {Object} value associated with session key
          */
         get(key: string): Object;
+        
+        /**
+         * push
+         * 
+         * @param {string} key session key
+         * @param {Function} cb callback
+         */
+        push(key: string, cb: (err: Error) => void): void;
+        
+        /**
+         * listener
+         * 
+         * @param {string} event event name
+         * @param {Function} listener listener event function
+         */
+        on(event: string, listener: Function): void;
     }
     
     /**
