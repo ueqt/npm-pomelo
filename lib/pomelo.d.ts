@@ -1,11 +1,12 @@
-declare module Pomelo {    
+declare namespace pomelo {    
     
     /**
      * application
      */
     class App {
-        set(key: string, value: string): void;
+        set(key: string, value: any): void;
         configure(env: string, type: string, callback: () => any): void;
+        configure(env: string, callback: () => any): void;
         route(key: string, func: (session: any, msg: any, app: any, cb: any) => any): void;
         filter(func: any): void;
         start(): void;
@@ -41,4 +42,4 @@ declare module Pomelo {
     function timeout(): any;
 }
 
-export = Pomelo;
+export = pomelo;
