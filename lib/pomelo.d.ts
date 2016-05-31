@@ -778,7 +778,7 @@ declare module pomelo {
          * @param {string | Number} uid User id   
          * @param {Function} cb callback      
          */
-        bind(uid: string | Number, cb: Function): void;
+        bind(uid: string | Number, cb?: Function): void;
         
         /**
          * Unbind the session with the the uid.
@@ -786,7 +786,7 @@ declare module pomelo {
          * @param {string | Number} uid User id      
          * @param {Function} cb callback         
          */
-        unbind(uid: string | Number, cb: Function): void;
+        unbind(uid: string | Number, cb?: Function): void;
         
         /**
          * Set values (one or many) for the session.
