@@ -1,0 +1,20 @@
+{
+  "name": "npm-pomelo",
+  "version": "1.2.3",
+  "description": "pomelo typescript definition",
+  "main": "./lib/pomelo.js",
+  "typings": "./lib/pomelo.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ueqt/npm-pomelo.git"
+  },
+  "author": "ueqt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ueqt/npm-pomelo/issues"
+  },
+  "homepage": "https://github.com/ueqt/npm-pomelo#readme",
+  "dependencies": {
+    "pomelo": "^1.2.3"
+  }
+}
