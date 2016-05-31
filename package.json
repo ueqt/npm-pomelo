@@ -1,6 +1,6 @@
 {
   "name": "npm-pomelo",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "pomelo typescript definition",
   "main": "./lib/pomelo.js",
   "typings": "./lib/pomelo.d.ts",

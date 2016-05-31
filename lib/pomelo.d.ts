@@ -691,6 +691,15 @@ declare module pomelo {
         kickBySessionId(sid: Number, cb: Function): void;
     }
     
+    /**
+     * Session maintains the relationship between client connection and user information.
+     * There is a session associated with each client connection. And it should bind to a
+     * user id after the client passes the identification.
+     *
+     * Session is created in frontend server and should not be accessed in handler.
+     * There is a proxy class called BackendSession in backend servers and FrontendSession 
+     * in frontend servers.
+     */
     export class Session {
         /**
          * Set values (one or many) for the session.
@@ -724,8 +733,9 @@ declare module pomelo {
     export class ServerInfo {
         id: string | Number;
         serverType: string | Number;
-        host: any;
-        port: any;
+        host: string;
+        port: Number;
+        clientPort: Number;
     }
     
     /**
