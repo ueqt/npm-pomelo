@@ -3,7 +3,7 @@ declare module pomelo {
     /**
      * Application
      */
-    export class Application {
+    class Application {
         /**
          * Get application base path
          *
@@ -454,7 +454,7 @@ declare module pomelo {
      * BackendSessionService would be created in each server process and maintains backend sessions for current process and communicates with the relative frontend servers.
      * BackendSessionService instance could be accessed by app.get('backendSessionService') or app.backendSessionService.
      */
-    export class BackendSessionService {
+    class BackendSessionService {
         /**
          * Get backend session by frontend server id and session id.
          *
@@ -502,7 +502,7 @@ declare module pomelo {
      * Any push would overwrite the last push of the same key silently and the changes would be saw in next request. 
      * And you have to make sure the transaction outside if you would push the session concurrently in different processes.
      */
-    export class BackendSession {
+    class BackendSession {
         
         /**
          * Bind current session with the user id. It would push the uid to frontend
@@ -559,7 +559,7 @@ declare module pomelo {
      * Create and maintain channels for server local.
      * ChannelService is created by channel component which is a default loaded component of pomelo and channel service would be accessed by app.get('channelService').
      */
-    export class ChannelService {     
+    class ChannelService {     
         
         /**
          * Create channel with name.
@@ -615,7 +615,7 @@ declare module pomelo {
      * Channel
      * Channel maintains the receiver collection for a subject. You can add users into a channel and then broadcast message to them by channel.
      */
-    export class Channel {
+    class Channel {
         /**
          * Add user to channel.
          *
@@ -673,7 +673,7 @@ declare module pomelo {
      * Session service is created by session component and is only available in frontend servers. 
      * You can access the service by app.get('sessionService') or app.sessionService in frontend servers.
      */
-    export class SessionService {
+    class SessionService {
         /**
          * Kick all the session offline under the user id.
          *
@@ -691,10 +691,28 @@ declare module pomelo {
         kickBySessionId(sid: Number, cb: Function): void;
     }
     
+    class Session {
+        /**
+         * Set values (one or many) for the session.
+         *
+         * @param {String|Object} key session key
+         * @param {Object} value session value
+         */
+        set(key: string | Object, value: Object);
+        
+        /**
+         * Get value from the session.
+         *
+         * @param {String} key session key
+         * @return {Object} value associated with session key
+         */
+        get(key: string): Object;
+    }
+    
     /**
      * master server info
      */
-    export class MasterInfo {
+    class MasterInfo {
         id: string | Number;
         host: any;
         port: any;
@@ -703,7 +721,7 @@ declare module pomelo {
     /**
      * ServerInfo
      */
-    export class ServerInfo {
+    class ServerInfo {
         id: string | Number;
         serverType: string | Number;
         host: any;
@@ -713,7 +731,7 @@ declare module pomelo {
     /**
      * Connector
      */
-    export class Connector {
+    class Connector {
         sioconnector: any;
         hybridconnector: any;
         udpconnector: any;
@@ -723,7 +741,7 @@ declare module pomelo {
     /**
      * PushScheduler
      */
-    export class PushScheduler {
+    class PushScheduler {
         direct: any;
         buffer: any;
     }
