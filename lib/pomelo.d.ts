@@ -142,7 +142,7 @@ declare module pomelo {
          *
          * @param  {Function} cb callback function
          */
-        start(cb: Function): void;
+        start(cb?: Function): void;
         
         /**
          * Assign `setting` to `val`, or return `setting`'s value.
