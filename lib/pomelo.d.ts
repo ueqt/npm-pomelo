@@ -679,26 +679,26 @@ declare module pomelo {
         /**
          * Get sessions by userId.
          *
-         * @param {Number} uid User id associated with the session
+         * @param {string | Number} uid User id associated with the session
          * @return {Array} list of session binded with the uid
          */
-        getByUid(uid: Number): (Session | FrontendSession)[];
+        getByUid(uid: string | Number): (Session | FrontendSession)[];
         
         /**
          * Kick all the session offline under the user id.
          *
-         * @param {Number}   uid user id asscociated with the session
+         * @param {string | Number}   uid user id asscociated with the session
          * @param {Function} cb  callback function         
          */
-        kick(uid: Number, cb: Function): void;
+        kick(uid: string | Number, cb: Function): void;
         
         /**
          * Kick a user offline by session id.
          *
-         * @param {Number}   sid session id
+         * @param {string | Number}   sid session id
          * @param {Function} cb  callback function         
          */
-        kickBySessionId(sid: Number, cb: Function): void;
+        kickBySessionId(sid: string | Number, cb: Function): void;
     }
     
     /**
@@ -715,16 +715,16 @@ declare module pomelo {
         /**
          * Bind the session with the the uid.
          *
-         * @param {Number} uid User id         
+         * @param {string | Number} uid User id         
          */
-        bind(uid: Number): void;
+        bind(uid: string | Number): void;
         
         /**
          * Unbind the session with the the uid.
          *
-         * @param {Number} uid User id         
+         * @param {string | Number} uid User id         
          */
-        unbind(uid: Number): void;
+        unbind(uid: string | Number): void;
         
         /**
          * Set values (one or many) for the session.
@@ -770,23 +770,23 @@ declare module pomelo {
      */
     export class FrontendSession {
         
-        uid: Number;
+        uid: string | Number;
         
         /**
          * Bind the session with the the uid.
          *
-         * @param {Number} uid User id   
+         * @param {string | Number} uid User id   
          * @param {Function} cb callback      
          */
-        bind(uid: Number, cb: Function): void;
+        bind(uid: string | Number, cb: Function): void;
         
         /**
          * Unbind the session with the the uid.
          *
-         * @param {Number} uid User id      
+         * @param {string | Number} uid User id      
          * @param {Function} cb callback         
          */
-        unbind(uid: Number, cb: Function): void;
+        unbind(uid: string | Number, cb: Function): void;
         
         /**
          * Set values (one or many) for the session.
