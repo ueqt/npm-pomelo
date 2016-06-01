@@ -11,7 +11,7 @@ declare module pomelo {
          *  pomelo start
          *  // app.getBase() -> /home/game
          *
-         * @return {String} application base path
+         * @return {string} application base path
          *
          */
         getBase(): string;
@@ -85,7 +85,7 @@ declare module pomelo {
         /**
          * Load component
          *
-         * @param  {String} name    (optional) name of the component
+         * @param  {string} name    (optional) name of the component
          * @param  {Object} component component instance or factory function of the component
          * @param  {[type]} opts    (optional) construct parameters for the factory function
          * @return {Object}     app instance for chain invoke         
@@ -104,8 +104,8 @@ declare module pomelo {
         /**
          * Load Configure json file to settings.
          *
-         * @param {String} key environment key
-         * @param {String} val environment value
+         * @param {string} key environment key
+         * @param {string} val environment value
          * @return {Server|Mixed} for chaining, or the setting value
          */
         loadConfig(key: string, val: string): any;
@@ -123,7 +123,7 @@ declare module pomelo {
          *    cb(null, areas[0].id);
          *  };
          *
-         * @param  {String} serverType server type string
+         * @param  {string} serverType server type string
          * @param  {Function} routeFunc  route function. routeFunc(session, msg, app, cb)
          * @return {Object}     current application instance for chain invoking         
          */
@@ -157,41 +157,41 @@ declare module pomelo {
          *  app.get('key2');  // 'value2'
          *  app.key2;         // 'value2'
          *
-         * @param {String} setting the setting of application
-         * @param {String} val the setting's value
-         * @param {Boolean} attach whether attach the settings to application
+         * @param {string} setting the setting of application
+         * @param {string} val the setting's value
+         * @param {boolean} attach whether attach the settings to application
          * @return {Server|Mixed} for chaining, or the setting value         
          */
-        set(setting: string, val: string | any, attach?: Boolean): any;
+        set(setting: string, val: string | any, attach?: boolean): any;
         
         /**
          * Get property from setting
          *
-         * @param {String} setting application setting
-         * @return {String} val         
+         * @param {string} setting application setting
+         * @return {string} val         
          */
         get(setting: string): string | any;
         
         /**
          * Check if `setting` is enabled.
          *
-         * @param {String} setting application setting
-         * @return {Boolean}         
+         * @param {string} setting application setting
+         * @return {boolean}         
          */
-        enabled(setting: string): Boolean;
+        enabled(setting: string): boolean;
         
         /**
          * Check if `setting` is disabled.
          *
-         * @param {String} setting application setting
-         * @return {Boolean}
+         * @param {string} setting application setting
+         * @return {boolean}
          */
-        disabled(setting: string): Boolean;
+        disabled(setting: string): boolean;
         
         /**
          * Enable `setting`.
          *
-         * @param {String} setting application setting
+         * @param {string} setting application setting
          * @return {app} for chaining         
          */
         enable(setting: string): Application;
@@ -199,7 +199,7 @@ declare module pomelo {
         /**
          * Disable `setting`.
          *
-         * @param {String} setting application setting
+         * @param {string} setting application setting
          * @return {app} for chaining
          */
         disable(setting: string): Application;
@@ -224,9 +224,9 @@ declare module pomelo {
          *    // executed for development env and connector server type
          *  });
          *
-         * @param {String} env application environment
+         * @param {string} env application environment
          * @param {Function} fn callback function
-         * @param {String} type server type
+         * @param {string} type server type
          * @return {Application} for chaining         
          */
         configure(env: string, type: string, fn: () => any): Application;
@@ -250,9 +250,9 @@ declare module pomelo {
          *    // executed for development env and connector server type
          *  });
          *
-         * @param {String} env application environment
+         * @param {string} env application environment
          * @param {Function} fn callback function
-         * @param {String} type server type
+         * @param {string} type server type
          * @return {Application} for chaining         
          */
         configure(env: string, fn: () => any): Application;       
@@ -276,9 +276,9 @@ declare module pomelo {
          *    // executed for development env and connector server type
          *  });
          *
-         * @param {String} env application environment
+         * @param {string} env application environment
          * @param {Function} fn callback function
-         * @param {String} type server type
+         * @param {string} type server type
          * @return {Application} for chaining         
          */
         configure(fn: () => any): Application;                
@@ -286,7 +286,7 @@ declare module pomelo {
         /**
          * Register admin modules. Admin modules is the extends point of the monitor system.
          *
-         * @param {String} moduleId (optional) module id or provoided by module.moduleId
+         * @param {string} moduleId (optional) module id or provoided by module.moduleId
          * @param {Object} module module object or factory function for module
          * @param {Object} opts construct parameter for module         
          */
@@ -304,12 +304,12 @@ declare module pomelo {
          * Application transaction. Transcation includes conditions and handlers, if conditions are satisfied, handlers would be executed.
          * And you can set retry times to execute handlers. The transaction log is in file logs/transaction.log.
          *
-         * @param {String} name transaction name
+         * @param {string} name transaction name
          * @param {Object} conditions functions which are called before transaction
          * @param {Object} handlers functions which are called during transaction
-         * @param {Number} retry retry times to execute handlers if conditions are successfully executed
+         * @param {number} retry retry times to execute handlers if conditions are successfully executed
          */
-        transaction(name: string, conditions: Object, handlers: Object, retry: Number): void;
+        transaction(name: string, conditions: Object, handlers: Object, retry: number): void;
         
         /**
          * Get master server info.
@@ -328,16 +328,16 @@ declare module pomelo {
         /**
          * Get current server id.
          *
-         * @return {String|Number} current server id from servers.json         
+         * @return {string} current server id from servers.json         
          */
-        getServerId(): string | Number;
+        getServerId(): string;
         
         /**
          * Get current server type.
          *
-         * @return {String|Number} current server type from servers.json         
+         * @return {string} current server type from servers.json         
          */
-        getServerType(): string | Number;
+        getServerType(): string;
         
         /**
          * Get all the current server infos.
@@ -358,12 +358,12 @@ declare module pomelo {
          *
          * @return {Array} server type list         
          */
-        getServerTypes(): (string | Number)[];
+        getServerTypes(): (string)[];
         
         /**
          * Get server info by server id from current server cluster.
          *
-         * @param  {String} serverId server id
+         * @param  {string} serverId server id
          * @return {Object} server info or undefined
          */
         getServerById(serverId: string): ServerInfo;
@@ -371,7 +371,7 @@ declare module pomelo {
         /**
          * Get server info by server id from servers.json.
          *
-         * @param  {String} serverId server id
+         * @param  {string} serverId server id
          * @return {Object} server info or undefined         
          */
         getServerFromConfig(serverId: string): ServerInfo;
@@ -379,7 +379,7 @@ declare module pomelo {
         /**
          * Get server infos by server type.
          *
-         * @param  {String} serverType server type
+         * @param  {string} serverType server type
          * @return {Array}      server info list
          */
         getServersByType(serverType: string): ServerInfo[];
@@ -389,25 +389,25 @@ declare module pomelo {
          *
          * @param  {server}  server server info. it would check current server
          *            if server not specified
-         * @return {Boolean}
+         * @return {boolean}
          */
-        isFrontend(server: ServerInfo): Boolean;
+        isFrontend(server: ServerInfo): boolean;
         
         /**
          * Check the server whether is a backend server
          *
          * @param  {server}  server server info. it would check current server
          *            if server not specified
-         * @return {Boolean}
+         * @return {boolean}
          */
-        isBackend(server: ServerInfo): Boolean;
+        isBackend(server: ServerInfo): boolean;
         
         /**
          * Check whether current server is a master server
          *
-         * @return {Boolean}
+         * @return {boolean}
          */
-        isMaster(): Boolean;
+        isMaster(): boolean;
         
         /**
          * Add new server info to current application in runtime.
@@ -421,7 +421,7 @@ declare module pomelo {
          *
          * @param  {Array} ids server id list         
          */
-        removeServers(servers: (string | Number)[]): void;
+        removeServers(servers: string[]): void;
         
         /**
          * Replace server info from current application at runtime.
@@ -459,8 +459,8 @@ declare module pomelo {
         /**
          * Get backend session by frontend server id and session id.
          *
-         * @param  {String}   frontendId frontend server id that session attached
-         * @param  {String}   sid        session id
+         * @param  {string}   frontendId frontend server id that session attached
+         * @param  {string}   sid        session id
          * @param  {Function} cb         callback function. args: cb(err, BackendSession)         
          */
         get(frontendId: string, sid: string, cb: Function): void;
@@ -468,8 +468,8 @@ declare module pomelo {
         /**
          * Get backend sessions by frontend server id and user id.
          *
-         * @param  {String}   frontendId frontend server id that session attached
-         * @param  {String}   uid        user id binded with the session
+         * @param  {string}   frontendId frontend server id that session attached
+         * @param  {string}   uid        user id binded with the session
          * @param  {Function} cb         callback function. args: cb(err, BackendSessions)
          */
         getByUid(frontendId: string, uid: string, cb: Function): void;
@@ -477,8 +477,8 @@ declare module pomelo {
         /**
          * Kick a session by session id.
          *
-         * @param  {String}   frontendId cooperating frontend server id
-         * @param  {Number}   sid        session id
+         * @param  {string}   frontendId cooperating frontend server id
+         * @param  {string}   sid        session id
          * @param  {Function} cb         callback function
          */
         kickBySid(frontendId: string, sid: string, cb: Function): void;
@@ -486,12 +486,12 @@ declare module pomelo {
         /**
          * Kick sessions by user id.
          *
-         * @param  {String}          frontendId cooperating frontend server id
-         * @param  {Number|String}   uid        user id
-         * @param  {String}          reason     kick reason
+         * @param  {string}          frontendId cooperating frontend server id
+         * @param  {string}   uid        user id
+         * @param  {string}          reason     kick reason
          * @param  {Function}        cb         callback function
          */
-        kickByUid(frontendId: string, uid: Number | string, reason: string, cb: Function): void;                
+        kickByUid(frontendId: string, uid: string, reason: string, cb: Function): void;                
     }
     
     /**
@@ -509,24 +509,24 @@ declare module pomelo {
          * Bind current session with the user id. It would push the uid to frontend
          * server and bind  uid to the frontend internal session.
          *
-         * @param  {Number|String}   uid user id
+         * @param  {string}   uid user id
          * @param  {Function} cb  callback function
          */
-        bind(uid: Number | string, cb: Function): void;
+        bind(uid: string, cb: Function): void;
         
         /**
          * Unbind current session with the user id. It would push the uid to frontend
          * server and unbind uid from the frontend internal session.
          *
-         * @param  {Number|String}   uid user id
+         * @param  {string}   uid user id
          * @param  {Function} cb  callback function
          */
-        unbind(uid: Number | string, cb: Function): void;
+        unbind(uid: string, cb: Function): void;
         
         /**
          * Set the key/value into backend session.
          *
-         * @param {String} key   key
+         * @param {string} key   key
          * @param {Object} value value
          */
         set(key: string, value: Object): void;
@@ -534,7 +534,7 @@ declare module pomelo {
         /**
          * Get the value from backend session by key.
          *
-         * @param  {String} key key
+         * @param  {string} key key
          * @return {Object}     value
          */
         get(key: string): Object;
@@ -542,7 +542,7 @@ declare module pomelo {
         /**
          * Push the key/value in backend session to the front internal session.
          *
-         * @param  {String}   key key
+         * @param  {string}   key key
          * @param  {Function} cb  callback function
          */
         push(key: string, cb: Function): void;
@@ -565,7 +565,7 @@ declare module pomelo {
         /**
          * Create channel with name.
          *
-         * @param {String} name channel's name
+         * @param {string} name channel's name
          * @return {Channel}
          */   
         createChannel(name: string): Channel;
@@ -573,16 +573,16 @@ declare module pomelo {
         /**
          * Get channel by name.
          *
-         * @param {String} name channel's name
-         * @param {Boolean} create if true, create channel
+         * @param {string} name channel's name
+         * @param {boolean} create if true, create channel
          * @return {Channel}
          */
-        getChannel(name: string, create: Boolean): Channel;
+        getChannel(name: string, create: boolean): Channel;
         
         /**
          * Destroy channel by name.
          *
-         * @param {String} name channel name
+         * @param {string} name channel name
          */
         destroyChannel(name: string): void;
         
@@ -590,7 +590,7 @@ declare module pomelo {
          * Push message by uids.
          * Group the uids by group. ignore any uid if sid not specified.
          *
-         * @param {String} route message route
+         * @param {string} route message route
          * @param {Object} msg message that would be sent to client
          * @param {Array} uids the receiver info list, [{uid: userId, sid: frontendServerId}]
          * @param {Object} opts user-defined push options, optional 
@@ -601,8 +601,8 @@ declare module pomelo {
         /**
          * Broadcast message to all the connected clients.
          *
-         * @param  {String}   stype      frontend server type string
-         * @param  {String}   route      route string
+         * @param  {string}   stype      frontend server type string
+         * @param  {string}   route      route string
          * @param  {Object}   msg        message
          * @param  {Object}   opts       user-defined broadcast options, optional
          *                               opts.binded: push to binded sessions or all the sessions
@@ -620,20 +620,20 @@ declare module pomelo {
         /**
          * Add user to channel.
          *
-         * @param {Number} uid user id
-         * @param {String} sid frontend server id which user has connected to
-         * @return {Boolean} true if success or false if fail
+         * @param {string} uid user id
+         * @param {string} sid frontend server id which user has connected to
+         * @return {boolean} true if success or false if fail
          */
-        add(uid: Number, sid: string): Boolean;
+        add(uid: string, sid: string): boolean;
         
         /**
          * Remove user from channel.
          *
-         * @param {Number} uid user id
-         * @param {String} sid frontend server id which user has connected to.
-         * @return [Boolean] true if success or false if fail
+         * @param {string} uid user id
+         * @param {string} sid frontend server id which user has connected to.
+         * @return [boolean] true if success or false if fail
          */
-        leave(uid: Number, sid: string): Boolean;
+        leave(uid: string, sid: string): boolean;
         
         /**
          * Get channel members.
@@ -647,7 +647,7 @@ declare module pomelo {
         /**
          * Get Member info.
          *
-         * @param  {String} uid user id
+         * @param  {string} uid user id
          * @return {Object} member info
          */
         getMember(uid: string): Object;
@@ -660,12 +660,21 @@ declare module pomelo {
         /**
          * Push message to all the members in the channel
          *
-         * @param {String} route message route
+         * @param {string} route message route
          * @param {Object} msg message that would be sent to client
          * @param {Object} opts user-defined push options, optional
          * @param {Function} cb callback function
          */
-        pushMessage(route: string, msg: Object, opts: Object, cb: Function): void;
+        pushMessage(route: string, msg: Object, opts?: Object, cb?: Function): void;
+        
+        /**
+         * Push message to all the members in the channel
+         *
+         * @param {Object} msg message that would be sent to client
+         * @param {Object} opts user-defined push options, optional
+         * @param {Function} cb callback function
+         */
+        pushMessage(msg: Object, opts?: Object, cb?: Function): void;
     }
     
     /**
@@ -679,26 +688,26 @@ declare module pomelo {
         /**
          * Get sessions by userId.
          *
-         * @param {string | Number} uid User id associated with the session
+         * @param {string} uid User id associated with the session
          * @return {Array} list of session binded with the uid
          */
-        getByUid(uid: string | Number): (Session | FrontendSession)[];
+        getByUid(uid: string): (Session | FrontendSession)[];
         
         /**
          * Kick all the session offline under the user id.
          *
-         * @param {string | Number}   uid user id asscociated with the session
+         * @param {string}   uid user id asscociated with the session
          * @param {Function} cb  callback function         
          */
-        kick(uid: string | Number, cb: Function): void;
+        kick(uid: string, cb: Function): void;
         
         /**
          * Kick a user offline by session id.
          *
-         * @param {string | Number}   sid session id
+         * @param {string}   sid session id
          * @param {Function} cb  callback function         
          */
-        kickBySessionId(sid: string | Number, cb: Function): void;
+        kickBySessionId(sid: string, cb: Function): void;
     }
     
     /**
@@ -715,21 +724,21 @@ declare module pomelo {
         /**
          * Bind the session with the the uid.
          *
-         * @param {string | Number} uid User id         
+         * @param {string} uid User id         
          */
-        bind(uid: string | Number): void;
+        bind(uid: string): void;
         
         /**
          * Unbind the session with the the uid.
          *
-         * @param {string | Number} uid User id         
+         * @param {string} uid User id         
          */
-        unbind(uid: string | Number): void;
+        unbind(uid: string): void;
         
         /**
          * Set values (one or many) for the session.
          *
-         * @param {String|Object} key session key
+         * @param {string|Object} key session key
          * @param {Object} value session value
          */
         set(key: string | Object, value: Object);
@@ -737,14 +746,14 @@ declare module pomelo {
         /**
          * Remove value from the session.
          *
-         * @param {String} key session key         
+         * @param {string} key session key         
          */
         remove(key: string): void;
         
         /**
          * Get value from the session.
          *
-         * @param {String} key session key
+         * @param {string} key session key
          * @return {Object} value associated with session key
          */
         get(key: string): Object;
@@ -770,28 +779,28 @@ declare module pomelo {
      */
     export class FrontendSession {
         
-        uid: string | Number;
+        uid: string;
         
         /**
          * Bind the session with the the uid.
          *
-         * @param {string | Number} uid User id   
+         * @param {string} uid User id   
          * @param {Function} cb callback      
          */
-        bind(uid: string | Number, cb?: Function): void;
+        bind(uid: string, cb?: Function): void;
         
         /**
          * Unbind the session with the the uid.
          *
-         * @param {string | Number} uid User id      
+         * @param {string} uid User id      
          * @param {Function} cb callback         
          */
-        unbind(uid: string | Number, cb?: Function): void;
+        unbind(uid: string, cb?: Function): void;
         
         /**
          * Set values (one or many) for the session.
          *
-         * @param {String|Object} key session key
+         * @param {string|Object} key session key
          * @param {Object} value session value
          */
         set(key: string | Object, value: Object);
@@ -799,7 +808,7 @@ declare module pomelo {
         /**
          * Get value from the session.
          *
-         * @param {String} key session key
+         * @param {string} key session key
          * @return {Object} value associated with session key
          */
         get(key: string): Object;
@@ -825,7 +834,7 @@ declare module pomelo {
      * master server info
      */
     export class MasterInfo {
-        id: string | Number;
+        id: string;
         host: any;
         port: any;
     }
@@ -834,11 +843,11 @@ declare module pomelo {
      * ServerInfo
      */
     export class ServerInfo {
-        id: string | Number;
-        serverType: string | Number;
+        id: string;
+        serverType: string;
         host: string;
-        port: Number;
-        clientPort: Number;
+        port: number;
+        clientPort: number;
     }
     
     /**
