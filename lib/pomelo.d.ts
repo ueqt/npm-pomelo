@@ -756,7 +756,7 @@ declare module pomelo {
          * @param {string} key session key
          * @return {Object} value associated with session key
          */
-        get(key: string): Object;
+        get(key: string): any;
         
         /**
          * Send message to the session.
@@ -811,7 +811,7 @@ declare module pomelo {
          * @param {string} key session key
          * @return {Object} value associated with session key
          */
-        get(key: string): Object;
+        get(key: string): any;
         
         /**
          * push
@@ -868,13 +868,13 @@ declare module pomelo {
         buffer: any;
     }
     
-    var version: any;
-    var events: any;
-    var components: any;
-    var filters: any;
-    var rpcFilters: any;
-    var connectors: Connector;
-    var pushSchedulers: PushScheduler;
+    let version: any;
+    let events: any;
+    let components: any;
+    let filters: any;
+    let rpcFilters: any;
+    let connectors: Connector;
+    let pushSchedulers: PushScheduler;
     
     /**
      * Create an pomelo application.
