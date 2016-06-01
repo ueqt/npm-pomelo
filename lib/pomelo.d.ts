@@ -596,7 +596,7 @@ declare module pomelo {
          * @param {Object} opts user-defined push options, optional 
          * @param {Function} cb cb(err)
          */
-        pushMessageByUids(route: string, msg: Object, uids: any, opts: Object, cb: (err) => void): void;
+        pushMessageByUids(route: string, msg: any, uids: any, opts?: Object, cb?: (err) => void): void;
         
         /**
          * Broadcast message to all the connected clients.
@@ -609,7 +609,7 @@ declare module pomelo {
          *                               opts.filterParam: parameters for broadcast filter.
          * @param  {Function} cb         callback
          */
-        broadcast(stype: string, route: string, msg: Object, opts: Object, cb: Function): void;
+        broadcast(stype: string, route: string, msg: any, opts?: Object, cb?: Function): void;
     }
     
     /**
